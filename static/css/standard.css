@@ -43,7 +43,7 @@ body {
 .container-fluid {
   width: 100%;
   height: auto;
-  background-color: #fff;
+  background-color: inherit;
 
   display: grid;
   grid-template-columns: [start] 100% [end];
@@ -54,6 +54,15 @@ body {
 
   /*border: 1px solid red;*/
 
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .container-fluid {
+    background-color: inherit;
+
+    /*border: 1px solid green;*/
+  }
 }
 
 .fullscreen {
@@ -69,6 +78,17 @@ body {
   grid-template-areas: "fullscreen";
 
   /*border: 3px solid yellow;*/
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .fullscreen {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+
+    /*border: 3px solid yellow;*/
+  }
 }
 
 #background-image {
@@ -89,13 +109,24 @@ body {
           animation: fadein 1s;
 }
 
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #background-image {
+    width: 95vw;
+    align-self: center;
+    justify-self: center;
+
+  }
+}
+
+
 .big-title {
   grid-area: fullscreen;
   /*
   grid-column-start: 1;
   grid-column-end: 17;*/
   width: auto;
-  height: 13em;
+  height: 13vw;
 
   align-self: center;
   justify-self: center;
@@ -112,6 +143,14 @@ body {
 
 }
 
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .big-title {
+    width: auto;
+    height: 15vw;
+  }
+}
+
 
 #name {
   grid-area: name;
@@ -119,7 +158,7 @@ body {
   align-self: center;
   justify-self: center;
 
-  font-size: 14em;
+  font-size: 14vw;
   letter-spacing: 1px;
   text-align: center;
   color: #8CC58C;
@@ -131,9 +170,17 @@ body {
        -o-animation: fadein 3s; /* Opera < 12.1 */
           animation: fadein 3s;
 
-  filter: opacity(.4);
+  filter: opacity(.6);
 
   /*border: 1px solid pink;*/
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #name {
+    font-size: 14vw;
+    filter: opacity(.6);
+  }
 }
 
 @keyframes fadein {
@@ -187,6 +234,13 @@ body {
   /*border: 1px solid green;*/
 }
 
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #title-statement {
+    font-size: 3.5vw;
+  }
+}
+
 .stamp {
   grid-area: fullscreen;
   align-self: end;
@@ -208,10 +262,54 @@ body {
 
 }
 
-.line {
-  align-self: center;
-  justify-self: center;
-  /*border: 1px solid blue;*/
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .stamp {
+    width: 70vw;
+    height: 10vw;
+    justify-self: center;
+
+    margin-right: 0px;
+
+  /*  border: 1px solid green; */
+  }
+}
+
+
+@media only screen and (min-width: 1025px) {
+  /* for mobile */
+  .line {
+    visibility: visible;
+    align-self: center;
+    justify-self: center;
+
+    /*border: 1px solid blue;*/
+  }
+
+  .line-mobile {
+    visibility: hidden;
+    display: none;
+
+    /*border: 1px solid red;*/
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .line-mobile {
+    visibility: visible;
+    align-self: center;
+    justify-self: center;
+
+    /*border: 1px solid red;*/
+  }
+
+  .line {
+    visibility: hidden;
+    display: none;
+
+    /*border: 1px solid blue;*/
+  }
 }
 
 #stamp-statement {
@@ -228,24 +326,70 @@ body {
   /*border: 1px solid green;*/
 }
 
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #stamp-statement {
+    font-size: 2.5vw;
+  }
+}
+
+
+
 
 .services {
   grid-area: card-2;
+/*  width: 100%;
+  height: auto;*/
+
   width: 100%;
   height: auto;
+  align-self: center;
+  justify-self: center;
 
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: [start] 40% [middle] 50% [end];
+
+  /*border: 3px solid pink;*/
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .services {
+    width: 95vw;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: [start] 1fr [middle] auto [end];
+
+    /*border: 3px solid pink;*/
+  }
 }
 
 #service-card-1 {
   width: 100%;
-  height: 100%;
+  height: auto;
   background-color: #000;
   display: grid;
   grid-template-columns: [start] repeat(2, 1fr) [end];
   grid-template-rows: [start] 100% [end];
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #service-card-1 {
+    width: 100%;
+    height: auto;
+    background-color: #000;
+    display: grid;
+    grid-template-rows: [start] repeat(2, 1fr) [end];
+    grid-template-columns: [start] 100% [end];
+
+    /*border: 3px solid red;*/
+  }
 }
 
 #fix {
@@ -257,14 +401,25 @@ body {
   grid-template-areas: "fix-items";
 }
 
+
 #fix h3 {
   grid-area: fix-items;
-  align-self: start;
+  align-self: center;
   justify-self: center;
   font-size: 5em;
 
   -webkit-filter: opacity(.7);
   filter: opacity(.7);
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #fix h3 {
+    align-self: center;
+    font-size: 11.5vw;
+
+    /*border: 3px solid yellow;*/
+  }
 }
 
 #fix img {
@@ -273,7 +428,6 @@ body {
   justify-self: center;
 
   width: 40%;
-
 
 }
 
@@ -285,17 +439,29 @@ body {
   grid-template-areas: "install-items";
 
   background-color: #282828;
+  /*border: 2px solid green;*/
 }
+
 
 #install h3 {
   grid-area: install-items;
-  align-self: start;
+  align-self: center;
   justify-self: center;
   font-size: 5em;
   color: #fff;
 
   -webkit-filter: opacity(.7);
   filter: opacity(.7);
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #install h3 {
+    align-self: center;
+    font-size: 11.5vw;
+
+    /*border: 3px solid yellow;*/
+  }
 }
 
 #install img {
@@ -308,6 +474,14 @@ body {
   -webkit-filter: opacity(5px);
   filter: opacity(5px);
 
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #install img {
+    width: 80%;
+    /*border: 3px solid yellow;*/
+  }
 }
 
 #link-button {
@@ -330,6 +504,14 @@ body {
 
   border: 1px solid #CCCCFF;
   border-radius: 25px;
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #link-button {
+    font-size: .75em;
+    margin-right: 20px;
+  }
 }
 
 #link-button:hover {
@@ -356,46 +538,116 @@ body {
 
   background-color: #fff;
 
-  /*border: 1px solid red;*/
+/*  border: 1px solid red;*/
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #service-card-2 {
+    width: 100%;
+    height: auto;
+    max-height: 70vw;
+
+    background-color: #fff;
+    display: grid;
+    grid-template-rows: [start] 100% [end];
+    grid-template-columns: [start] 100% [end];
+    grid-auto-flow: row;
+
+    /*border: 3px solid blue;*/
+  }
 }
 
 .consult-card {
   grid-area: consult-card;
-  width: 80%;
+  width: 65%;
   height: auto;
 
   align-self: center;
   justify-self: center;
 
+  display: grid;
+  grid-template-columns: [start] 100% [end];
+  grid-template-rows: [start] 100% [end];
+  grid-template-areas: "consult-box";
+
   /*border: 1px solid yellow;*/
 }
 
+@media only screen and (max-width: 1024px) {
+  .consult-card {
+    width: 70%;
+    height: auto;
 
-.consult-card h3 {
-  position: relative;
-  bottom: 25vh;
-  right: 9vw;
+    align-self: center;
+    justify-self: center;
 
-  width: 100%;
-  margin: 0 auto;
+    /*border: 3px solid yellow;*/
+  }
+}
 
-  font-size: 5em;
-  color: #000;
-  text-align: left;
 
-  -webkit-filter: opacity(.7);
-  filter: opacity(.7);
+@media only screen and (min-width: 1025px) {
+  .consult-card h3 {
+    grid-area: consult-box;
+    align-self: center;
+    justify-self: center;
+
+    width: 100%;
+
+    font-size: 6em;
+    color: #000;
+    text-align: center;
+
+    -webkit-filter: opacity(.7);
+    filter: opacity(.7);
+
+    /*border: 3px solid red;*/
+  }
+}
+
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .consult-card h3 {
+    grid-area: consult-box;
+    align-self: center;
+    justify-self: center;
+
+    width: auto;
+
+    font-size: 11.5vw;
+    color: #000;
+    text-align: center;
+
+    -webkit-filter: opacity(.7);
+    filter: opacity(.7);
+
+    /*border: 3px solid red;*/
+  }
 }
 
 .img-box {
+  grid-area: consult-box;
+  align-self: center;
+  justify-self: center;
 
-  width: 30%;
-  height: 24vw;
-
-  margin: 0 auto;
-  padding: 10px;
+  width: 20vw;
+  height: auto;
 
   /*border: 1px solid green;*/
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .img-box {
+    grid-area: consult-box;
+    align-self: center;
+    justify-self: center;
+
+    width: 60%;
+    height: auto;
+  }
 }
 
 #consult-img {
@@ -415,6 +667,20 @@ body {
   grid-template-rows: 100%;
 
   background-color: #fff;
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .contact-wrapper {
+    width: 100%;
+    height: 9em;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+
+    background-color: #fff;
+  }
 }
 
 #contact {
@@ -437,8 +703,32 @@ body {
   grid-template-rows: [start] 100% [end];
 
   /*border: 1px solid green;*/
-  border-top: 6px solid #282828;
+  border-top: 5px solid #282828;
 }
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #contact {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+
+    padding: 10px;
+
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: grid;
+    grid-template-rows: [start] repeat(2, 1fr) [end];
+    grid-template-columns: [start] 100% [end];
+
+    /*border-top: 6px solid #282828;*/
+  }
+}
+
 
 #contact li {
   list-style: none;
@@ -447,8 +737,64 @@ body {
 
 }
 
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #contact li  {
+    width: 60vw;
+
+    list-style: none;
+    align-self: center;
+    justify-self: center;
+
+    display: grid;
+    grid-template-columns: [start] 30% [middle] 70% [end];
+    grid-template-rows: [start] auto [end];
+
+    /*border: 1px solid green;*/
+
+  }
+}
+
 #contact img {
   width: 2em;
   align-self: center;
   justify-self: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  #contact img  {
+    width: 2em;
+    align-self: center;
+    justify-self: start;
+    /*border: 1px solid blue;*/
+
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .contact-info {
+    align-self: center;
+    justify-self: start;
+    height: 50%;
+
+    display: grid;
+    grid-template-columns: [start] 100% [end];
+    grid-template-rows: [start] auto [end];
+
+
+    /*border: 2px solid pink;*/
+
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  /* for mobile */
+  .contact-info p {
+    text-align: center;
+
+    /*border: 1px solid red;*/
+
+  }
 }
