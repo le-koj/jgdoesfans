@@ -2,3 +2,4 @@ venv/
 media/
 home.html
 .DS_Store
+static/.DS_Store
