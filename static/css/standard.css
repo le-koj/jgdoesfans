@@ -38,6 +38,7 @@ body {
   background-color: #181414;
   border: 10px solid #181414;
 
+
 }
 
 .container-fluid {
@@ -47,8 +48,9 @@ body {
 
   display: grid;
   grid-template-columns: [start] 100% [end];
-  grid-template-rows: [start] 50% [middle] 50% [end];
-  grid-template-areas: "card-1"
+  grid-template-rows: [start] 10% [middle] 45% [last] 45% [end];
+  grid-template-areas: "logo-box"
+                       "card-1"
                        "card-2";
 
 
@@ -64,6 +66,56 @@ body {
     /*border: 1px solid green;*/
   }
 }
+
+
+.logo-wrapper {
+  grid-area: logo-box;
+  width: 98vw;
+  height: 2.6em;
+
+  align-self: center;
+  justify-self: center;
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+
+  grid-template-areas: "logo";
+
+  background-color: rgba(255, 255, 255, 1);
+
+
+  /*border: 3px solid yellow;*/
+}
+
+#logo-name {
+  grid-area: logo;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+
+
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: [start] repeat(3, 1fr) [end];
+
+  color: #fff;
+
+ /*border: 2px solid red;*/
+}
+
+#logo-name li {
+  align-self: center;
+  justify-self: center;
+
+  letter-spacing: 6px;
+  font-size: 1.9em;
+  font-weight: bolder;
+  color: #e5e5e5 /*#dd8c31*/;
+
+  text-shadow: 1px 1px 1px #000;
+}
+
 
 .fullscreen {
   grid-area: card-1;
@@ -90,6 +142,7 @@ body {
     /*border: 3px solid yellow;*/
   }
 }
+
 
 #background-image {
   grid-area: fullscreen;
@@ -245,7 +298,7 @@ body {
   grid-area: fullscreen;
   align-self: end;
   justify-self: end;
-  width: 450px;
+  width: 500px;
 
   margin-right: 50px;
   /*margin-bottom: 20px;*/
@@ -265,7 +318,7 @@ body {
 @media only screen and (max-width: 1024px) {
   /* for mobile */
   .stamp {
-    width: 70vw;
+    width: 84vw;
     height: 10vw;
     justify-self: center;
 
