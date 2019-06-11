@@ -3,3 +3,8 @@ media/
 home.html
 .DS_Store
 static/.DS_Store
+__pycache__
+*.pyc
+*.log
+*.pot
+Apps/db.sqlite3
