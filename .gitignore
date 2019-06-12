@@ -8,3 +8,4 @@ __pycache__
 *.log
 *.pot
 Apps/db.sqlite3
+migrations/

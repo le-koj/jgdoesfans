@@ -1,13 +1,14 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
 from .models import HomePage, Poster, SocialMedia
+from .views import home
 
 # Create your tests here.
 class HomeTests(TestCase):
     def setUp(self):
         self.homepage = HomePage.objects.create(name='index', heading='JAY GREENE', sub_title='CEILING FAN SPECIALIST', stamp='17 years experience', phone='7148873880', email='sample@mail.com')
-        #url = reverse('home')
-        #self.response = self.client.get(url)
+        url = reverse('home')
+        self.response = self.client.get(url)
 
     def test_HomePage_properties(self):
         home_page_name = self.homepage.name
@@ -31,3 +32,17 @@ class PosterTests(TestCase):
 
 
         self.assertEquals([name, alternate], ['site poster', 'background image of Jay Greene and fan'])
+
+
+class ViewsTest(TestCase):
+    def setUp(self):
+        self.homepage = HomePage.objects.create(name='index', heading='JAY GREENE', sub_title='CEILING FAN SPECIALIST', stamp='17 years experience', phone='7148873880', email='sample@mail.com')
+        url = reverse('home')
+        self.response = self.client.get(url)
+
+    def test_home_view_status_code(self):
+        self.assertEquals(self.response.status_code, 200)
+
+    def test_home_url_resolves_home_view(self):
+        view = resolve('/')
+        self.assertEquals(view.func, home)

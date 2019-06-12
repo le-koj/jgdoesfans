@@ -7,7 +7,10 @@ from phone_field import PhoneField
 
 #____ create HomePage Object ____#
 class HomePage(models.Model):
-    name = models.CharField(max_length=100, unique=True, primary_key=True)  # name to identify homepage object
+    LANDING_PAGE_PK = [
+        ('landing_page', 'index'),
+    ]
+    name = models.CharField(max_length=100, choices=LANDING_PAGE_PK, default='index', unique=True, primary_key=True)  # name to identify homepage object
     heading = models.CharField(max_length=100, unique=True)                 # website heading
     sub_title = models.CharField(max_length=100, unique=True)
     stamp = models.TextField(max_length=80)                         # website <about> description
@@ -20,7 +23,10 @@ class HomePage(models.Model):
 
 #____ create SlideImages Object ____#
 class Poster(models.Model):
-    name = models.CharField(max_length=100)
+    POSTER_IMAGE = [
+        ('bg_image', 'poster'),
+    ]
+    name = models.CharField(max_length=100, choices=POSTER_IMAGE, default='poster', unique=True, primary_key=True)
     imagefile = models.ImageField(upload_to='static/media/flyers/', blank=True, null=True, verbose_name="")
     alternate_name = models.CharField(max_length=100)
 
